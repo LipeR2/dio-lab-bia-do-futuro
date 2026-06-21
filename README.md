@@ -84,7 +84,9 @@ streamlit run src/app.py
 
 ## 📈 Critérios de Validação Técnico-Comercial
 
-A SOFIA foi testada e aprovada sob três pilares fundamentais descritos na pasta `docs/`:
+A SOFIA ainda não foi testada e nem aprovada sob três pilares fundamentais descritos na pasta `docs/`:
+- Obs.: Ainda no processo de finalização do produto.
+  
 1. **Assertividade:** Extração correta de valores monetários a partir das linhas do arquivo `transacoes.csv`.
 2. **Segurança de Escopo:** Bloqueio e recusa elegante a perguntas sobre meteorologia, esportes ou ativos externos não catalogados (ex: criptomoedas fictícias).
 3. **Coerência de Risco:** Filtro de conformidade automatizado impedindo que o cliente receba ofertas desalinhadas com seu perfil.
