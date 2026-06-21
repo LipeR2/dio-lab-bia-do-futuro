@@ -1,149 +1,90 @@
-# 🤖 Agente Financeiro Inteligente com IA Generativa
+# 🤖 SOFIA — Smart Optimizing Financial Intelligence Advisor
 
-## Contexto
+> Desafio de Projeto: Agente Financeiro Inteligente com IA Generativa para a DIO (Digital Innovation One).
 
-Os assistentes virtuais no setor financeiro estão evoluindo de simples chatbots reativos para **agentes inteligentes e proativos**. Neste desafio, você vai idealizar e prototipar um agente financeiro que utiliza IA Generativa para:
-
-- **Antecipar necessidades** ao invés de apenas responder perguntas
-- **Personalizar** sugestões com base no contexto de cada cliente
-- **Cocriar soluções** financeiras de forma consultiva
-- **Garantir segurança** e confiabilidade nas respostas (anti-alucinação)
-
-> [!TIP]
-> Na pasta [`examples/`](./examples/) você encontra referências de implementação para cada etapa deste desafio.
+A **SOFIA** é uma agente financeira inteligente e proativa desenvolvida para transformar a relação das pessoas com o próprio dinheiro. Diferente dos aplicativos bancários tradicionais que funcionam apenas como um "retrovisor" passivo de gastos, a SOFIA atua como uma copiloto consultiva e educacional, antecipando necessidades e sugerindo caminhos de otimização patrimonial em tempo real.
 
 ---
 
-## O Que Você Deve Entregar
+## 🎯 Caso de Uso e Diferenciais
 
-### 1. Documentação do Agente
-
-Defina **o que** seu agente faz e **como** ele funciona:
-
-- **Caso de Uso:** Qual problema financeiro ele resolve? (ex: consultoria de investimentos, planejamento de metas, alertas de gastos)
-- **Persona e Tom de Voz:** Como o agente se comporta e se comunica?
-- **Arquitetura:** Fluxo de dados e integração com a base de conhecimento
-- **Segurança:** Como evitar alucinações e garantir respostas confiáveis?
-
-📄 **Template:** [`docs/01-documentacao-agente.md`](./docs/01-documentacao-agente.md)
+* **Atuação Proativa:** Analisa o fluxo de caixa recente para encontrar padrões de consumo e espaços para poupar antes do fechamento do mês.
+* **Segurança Absoluta (Anti-Alucinação):** Implementa uma arquitetura **RAG Estrito (Retrieval-Augmented Generation)** conectada ao modelo `gemini-2.5-flash`. A SOFIA está programaticamente blindada para responder *apenas* com base nos produtos e dados oficiais homologados pela instituição.
+* **Adequação de Perfil (Suitability):** Cruza as opções de investimento do catálogo com as preferências de risco do cliente, bloqueando ativamente sugestões inadequadas ou nocivas ao patrimônio do usuário.
 
 ---
 
-### 2. Base de Conhecimento
+## 📁 Estrutura do Repositório
 
-Utilize os **dados mockados** disponíveis na pasta [`data/`](./data/) para alimentar seu agente:
+O projeto segue estritamente a árvore de diretórios recomendada para o desafio:
 
-| Arquivo | Formato | Descrição |
-|---------|---------|-----------|
-| `transacoes.csv` | CSV | Histórico de transações do cliente |
-| `historico_atendimento.csv` | CSV | Histórico de atendimentos anteriores |
-| `perfil_investidor.json` | JSON | Perfil e preferências do cliente |
-| `produtos_financeiros.json` | JSON | Produtos e serviços disponíveis |
-
-Você pode adaptar ou expandir esses dados conforme seu caso de uso.
-
-📄 **Template:** [`docs/02-base-conhecimento.md`](./docs/02-base-conhecimento.md)
-
----
-
-### 3. Prompts do Agente
-
-Documente os prompts que definem o comportamento do seu agente:
-
-- **System Prompt:** Instruções gerais de comportamento e restrições
-- **Exemplos de Interação:** Cenários de uso com entrada e saída esperada
-- **Tratamento de Edge Cases:** Como o agente lida com situações limite
-
-📄 **Template:** [`docs/03-prompts.md`](./docs/03-prompts.md)
-
----
-
-### 4. Aplicação Funcional
-
-Desenvolva um **protótipo funcional** do seu agente:
-
-- Chatbot interativo (sugestão: Streamlit, Gradio ou similar)
-- Integração com LLM (via API ou modelo local)
-- Conexão com a base de conhecimento
-
-📁 **Pasta:** [`src/`](./src/)
-
----
-
-### 5. Avaliação e Métricas
-
-Descreva como você avalia a qualidade do seu agente:
-
-**Métricas Sugeridas:**
-- Precisão/assertividade das respostas
-- Taxa de respostas seguras (sem alucinações)
-- Coerência com o perfil do cliente
-
-📄 **Template:** [`docs/04-metricas.md`](./docs/04-metricas.md)
-
----
-
-### 6. Pitch
-
-Grave um **pitch de 3 minutos** (estilo elevador) apresentando:
-
-- Qual problema seu agente resolve?
-- Como ele funciona na prática?
-- Por que essa solução é inovadora?
-
-📄 **Template:** [`docs/05-pitch.md`](./docs/05-pitch.md)
-
----
-
-## Ferramentas Sugeridas
-
-Todas as ferramentas abaixo possuem versões gratuitas:
-
-| Categoria | Ferramentas |
-|-----------|-------------|
-| **LLMs** | [ChatGPT](https://chat.openai.com/), [Copilot](https://copilot.microsoft.com/), [Gemini](https://gemini.google.com/), [Claude](https://claude.ai/), [Ollama](https://ollama.ai/) |
-| **Desenvolvimento** | [Streamlit](https://streamlit.io/), [Gradio](https://www.gradio.app/), [Google Colab](https://colab.research.google.com/) |
-| **Orquestração** | [LangChain](https://www.langchain.com/), [LangFlow](https://www.langflow.org/), [CrewAI](https://www.crewai.com/) |
-| **Diagramas** | [Mermaid](https://mermaid.js.org/), [Draw.io](https://app.diagrams.net/), [Excalidraw](https://excalidraw.com/) |
-
----
-
-## Estrutura do Repositório
-
-```
-📁 lab-agente-financeiro/
+```text
+lab-agente-financeiro/
 │
-├── 📄 README.md
+├── 📄 README.md                      # Você está aqui (Contextualização da SOFIA)
 │
-├── 📁 data/                          # Dados mockados para o agente
-│   ├── historico_atendimento.csv     # Histórico de atendimentos (CSV)
-│   ├── perfil_investidor.json        # Perfil do cliente (JSON)
-│   ├── produtos_financeiros.json     # Produtos disponíveis (JSON)
-│   └── transacoes.csv                # Histórico de transações (CSV)
+├── 📁 data/                          # Dados locais e mockados do ecossistema
+│   ├── historico_atendimento.csv     # Conversas e dores anteriores do cliente
+│   ├── perfil_investidor.json        # Nível de risco e preferências do usuário
+│   ├── produtos_financeiros.json     # Catálogo oficial de ativos homologados
+│   └── transacoes.csv                # Histórico de fluxo de caixa dos últimos dias
 │
-├── 📁 docs/                          # Documentação do projeto
-│   ├── 01-documentacao-agente.md     # Caso de uso e arquitetura
-│   ├── 02-base-conhecimento.md       # Estratégia de dados
-│   ├── 03-prompts.md                 # Engenharia de prompts
-│   ├── 04-metricas.md                # Avaliação e métricas
-│   └── 05-pitch.md                   # Roteiro do pitch
+├── 📁 docs/                          # Documentação detalhada do projeto
+│   ├── 01-documentacao-agente.md     # Escopo, persona, tom de voz e diagrama
+│   ├── 02-base-conhecimento.md       # Estratégia de integração de dados
+│   ├── 03-prompts.md                 # Engenharia de prompts e Few-Shot
+│   ├── 04-metricas.md                # Cenários de teste e avaliação de qualidade
+│   └── 05-pitch.md                   # Roteiro técnico do pitch de 3 minutos
 │
-├── 📁 src/                           # Código da aplicação
-│   └── app.py                        # (exemplo de estrutura)
-│
-├── 📁 assets/                        # Imagens e diagramas
-│   └── ...
-│
-└── 📁 examples/                      # Referências e exemplos
-    └── README.md
+└── 📁 src/                           # Código-fonte do protótipo funcional
+    ├── app.py                        # Interface visual e interativa (Streamlit)
+    ├── agente.py                     # Motor de IA e RAG (Google GenAI API)
+    ├── config.py                     # Validador de ambiente e caminhos locais
+    └── requirements.txt              # Dependências de execução do Python
 ```
 
 ---
 
-## Dicas Finais
+## 🛠️ Tecnologias Utilizadas
 
-1. **Comece pelo prompt:** Um bom system prompt é a base de um agente eficaz
-2. **Use os dados mockados:** Eles garantem consistência e evitam problemas com dados sensíveis
-3. **Foque na segurança:** No setor financeiro, evitar alucinações é crítico
-4. **Teste cenários reais:** Simule perguntas que um cliente faria de verdade
-5. **Seja direto no pitch:** 3 minutos passam rápido, vá ao ponto
+* **LLM Core:** [Google Gemini 2.5 Flash](https://google.dev) (via SDK oficial `google-genai`)
+* **Interface Web:** [Streamlit](https://streamlit.io)
+* **Processamento de Dados:** [Pandas](https://pydata.org)
+* **Orquestração de Contexto:** Python nativo com baixa temperatura (`0.2`) para mitigação completa de alucinações.
+
+---
+
+## 🚀 Como Executar o Protótipo Localmente
+
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com
+cd NOME_DO_REPOSITORIO
+```
+
+### 2. Configurar as Variáveis de Ambiente
+Crie um arquivo chamado `.env` na **raiz** do seu projeto (mesmo nível deste arquivo README) e adicione a sua chave de API do Google AI Studio:
+```text
+GEMINI_API_KEY=AIzaSyYourActualGeminiKeyHere
+```
+
+### 3. Instalar as Dependências
+Recomenda-se o uso de um ambiente virtual (venv). Instale os pacotes necessários rodando:
+```bash
+pip install -r src/requirements.txt
+```
+
+### 4. Iniciar a SOFIA
+Execute o comando do Streamlit para abrir o painel de controle e a janela de chat diretamente no seu navegador:
+```bash
+streamlit run src/app.py
+```
+
+---
+
+## 📈 Critérios de Validação Técnico-Comercial
+
+A SOFIA foi testada e aprovada sob três pilares fundamentais descritos na pasta `docs/`:
+1. **Assertividade:** Extração correta de valores monetários a partir das linhas do arquivo `transacoes.csv`.
+2. **Segurança de Escopo:** Bloqueio e recusa elegante a perguntas sobre meteorologia, esportes ou ativos externos não catalogados (ex: criptomoedas fictícias).
+3. **Coerência de Risco:** Filtro de conformidade automatizado impedindo que o cliente receba ofertas desalinhadas com seu perfil.
